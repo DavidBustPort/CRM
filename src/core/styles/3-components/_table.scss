@@ -1,0 +1,64 @@
+$table-border-color: #dee2e6;
+
+.table {
+
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th {
+        border-color: $table-border-color;
+    }
+
+    > :not(:last-child)> :last-child>* {
+        border-color: $table-border-color;
+    }
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.table-leads {
+    font-size: 12px;
+    cursor: pointer;
+
+    td {
+        padding-bottom: 0.25rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+        border: .5px solid #ccc;
+    }
+}
+
+/* row-expanded */
+.small-table {
+    font-size: small;
+    table-layout: auto;
+}
+
+.table-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: rgba(var(--bs-primary-rgb), 0.05);
+    }
+
+    &.row-expanded {
+        background-color: rgba(var(--bs-info-rgb), 0.1);
+        border-left: 2px solid var(--bs-info);
+        //border-top: 1.5px solid var(--bs-info);
+    }
+}
+
+.colNotWrap {
+    white-space: nowrap; // Evita salto de línea
+    padding: 0.5rem 0.75rem; // Reduce un poco el padding
+}
+
+.expanded-row {
+    border-left: 2px solid var(--bs-info) !important;
+}

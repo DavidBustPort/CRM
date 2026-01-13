@@ -1,0 +1,73 @@
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import {
+    faUserPlus,
+    faChevronLeft,
+    faHouse,
+    faFileExport,
+    faCircle,
+    faList,
+    faSquareCheck,
+    faXmark,
+    faCircleXmark,
+    faInbox,
+    faRightFromBracket,
+    faUpRightAndDownLeftFromCenter,
+    faCircleUser,
+    faPersonWalkingDashedLineArrowRight,
+    faChartLine,
+    faFileExcel,
+    faDiagramProject,
+    faChevronUp,
+    faChevronDown,
+    faCircleQuestion,
+    faChevronRight,
+    faUserTie,
+    faUsers,
+    faCheck,
+    faSearch,
+    faEllipsisVertical,
+    faEye,
+    faExclamationTriangle,
+    faEdit,
+    faTachometerAlt,
+    faBuilding
+}
+from  '@fortawesome/free-solid-svg-icons'
+
+library.add(
+    faUserPlus,
+    faChevronLeft,
+    faHouse,
+    faFileExport,
+    faCircle,
+    faList,
+    faSquareCheck,
+    faXmark,
+    faCircleXmark,
+    faInbox,
+    faRightFromBracket,
+    faUpRightAndDownLeftFromCenter,
+    faCircleUser,
+    faPersonWalkingDashedLineArrowRight,
+    faChartLine,
+    faFileExcel,
+    faDiagramProject,
+    faChevronUp,
+    faChevronDown,
+    faCircleQuestion,
+    faChevronRight,
+    faUserTie,
+    faUsers,
+    faCheck,
+    faSearch,
+    faEllipsisVertical,
+    faEye,
+    faExclamationTriangle,
+    faEdit,
+    faTachometerAlt,
+    faBuilding
+)
+
+export default FontAwesomeIcon
