@@ -32,7 +32,11 @@ import {
     faExclamationTriangle,
     faEdit,
     faTachometerAlt,
-    faBuilding
+    faBuilding,
+    faUser,
+    faPlusCircle,
+    faEyeSlash,
+    faArrowLeft
 }
 from  '@fortawesome/free-solid-svg-icons'
 
@@ -67,7 +71,11 @@ library.add(
     faExclamationTriangle,
     faEdit,
     faTachometerAlt,
-    faBuilding
+    faBuilding,
+    faUser,
+    faPlusCircle,
+    faEyeSlash,
+    faArrowLeft
 )
 
 export default FontAwesomeIcon

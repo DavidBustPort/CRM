@@ -23,7 +23,8 @@ const routes: RouteRecordRaw[] = [
                 name: 'Crear Prospecto',
                 component: () => import('./pages/sharedForm/AddProspecto.vue'),
                 meta: {
-                    canExtendContainer: true
+                    canExtendContainer: true,
+                    mainContainerColumn: 'col-xxl-8 offset-xxl-2'
                 }
             }
         ]

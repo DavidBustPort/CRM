@@ -5,5 +5,7 @@ declare module 'vue-router' {
         icon?: string
         canExtendContainer?: boolean
         breadcrumbName?: string
+        mainContainerColumn?: string
+        requiresHeavyLoading?: boolean
     }
 }

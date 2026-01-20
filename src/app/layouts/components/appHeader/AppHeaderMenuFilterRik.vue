@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onMounted, ref } from 'vue'
-import { catalogoService } from '@/shared/services/catalogos-service'
+import { CatalogoService } from '@/shared/services/catalogos-service'
 import { useAppStore } from '@/core/store/appStore'
 
 interface customRiks {
@@ -81,7 +81,7 @@ const selectRik = (rik: customRiks) => {
 }
 
 onMounted(async () => {
-    const riksResponse = await catalogoService.getRiks()
+    const riksResponse = await CatalogoService.getRiks()
     riks.value.push(...riksResponse)
     riks.value.unshift({
         id: null,
