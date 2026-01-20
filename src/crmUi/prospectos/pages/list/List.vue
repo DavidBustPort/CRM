@@ -1,7 +1,7 @@
 <template>
     <div class="row mb-3">
         <div class="col-12 text-center text-md-start col-md-6">
-            <h2>{{ route.name }}</h2>
+            <h2 class="text-primary fw-bold ps-3 border-start border-4 border-primary">{{ route.name }}</h2>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0 text-end">
             <div class="d-md-flex justify-content-center justify-content-md-end align-items-center align-items-md-end gap-2">

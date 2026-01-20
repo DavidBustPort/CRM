@@ -2,12 +2,14 @@ import type { RouteRecordRaw } from 'vue-router'
 import oportunidadesRoute from '@/crmUi/oportunidades/oportunidades-route'
 import prospectosRoute from '@/crmUi/prospectos/prospectos-route'
 import dashboardRoute from '@/crmUi/dashboard/dashboard-route'
+import leadsRoute from '@/crmUi/leads/leads-route'
 import reportesRoute from '@/crmUi/reportes/reportes-route'
 
 const routes: RouteRecordRaw[] = [
     ...dashboardRoute,
     ...prospectosRoute,
     ...oportunidadesRoute,
+    ...leadsRoute,
     ...reportesRoute,
     {
         path: '/no-autorizado',

@@ -1,0 +1,27 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 0.4px;
+}
+
+.custom-row {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    &:hover {
+        background-color: #f8faff !important;
+        transform: scale(1.002);
+    }
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.badge {
+    font-weight: 600;
+    padding: 0.5em 0.8em;
+}

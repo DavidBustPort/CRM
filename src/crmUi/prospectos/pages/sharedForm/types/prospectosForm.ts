@@ -7,6 +7,6 @@ export interface ProspectoForm {
     segmentoId: number | null
     tipoClienteId: number | null
     vpo: number
-    territorioId: number
+    territorioId: number | null
     observaciones: string
 }

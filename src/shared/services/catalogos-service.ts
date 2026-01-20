@@ -1,5 +1,5 @@
 import type { ApiWrapper } from '@/core/types/api/apiWrapper'
-import type { Rik, Segmento, Territorio, TipoCliente, Uen } from '../types/catalogos'
+import type { Rik, Segmento, Sucursales, Territorio, TipoCliente, Uen } from '../types/catalogos'
 import { apiInstance } from '@/core/services'
 
 export const CatalogoService = {
@@ -36,5 +36,12 @@ export const CatalogoService = {
             const response = await apiInstance.get<ApiWrapper<Territorio[]>>('/catalogos/territorios')
             return response.data.succeeded ? response.data.data || [] : []
         } catch { return [] }
-    }
+    },
+
+    getSucursales: async(): Promise<Sucursales[]> => {
+        try {
+            const response = await apiInstance.get<ApiWrapper<Sucursales[]>>('/catalogos/sucursales')
+            return response.data.succeeded ? response.data.data || [] : []
+        } catch { return [] }
+    },
 }

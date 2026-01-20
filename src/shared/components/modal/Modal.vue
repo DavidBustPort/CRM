@@ -6,7 +6,7 @@
             tabindex="-1"
             @clic.self="handleBackdropClick"
         >
-            <div class="modal-dialog" :class="[sizeClass, animationClass]">
+            <div class="modal-dialog animate__animated" :class="[sizeClass, animationClass]">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">{{ options.title }}</h5>
@@ -23,7 +23,7 @@
                     <div class="modal-footer" :class="{'justify-content-center': options.centerButtons }">
                         <button
                             type="button"
-                            class="btn btn-secondary"
+                            class="btn btn-secondary text-dark"
                             @click="close"
                             v-if="options.showCloseButton"
                         >

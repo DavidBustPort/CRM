@@ -1,0 +1,15 @@
+import type { RouteRecordRaw } from 'vue-router'
+
+const routes: RouteRecordRaw[] = [
+    {
+        path: '/leads',
+        name: 'Leads',
+        component: () => import('./Leads.vue'),
+        meta: {
+            sidebarMenu: true,
+            icon: 'fa-inbox',
+        }
+    }
+]
+
+export default routes

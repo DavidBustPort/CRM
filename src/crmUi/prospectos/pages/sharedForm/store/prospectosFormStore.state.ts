@@ -1,10 +1,16 @@
 import type { Pagination } from '@/shared/components/pagination/types'
 import type { ProspectoForm } from '../types/prospectosForm'
+import type { SuggestedLeads, SuggestedLeadsData } from '@/crmUi/leads/types/suggestedLeads'
 
 export interface ProspectosFormState {
     formData: ProspectoForm
-    pagination: Pagination,
-    mode: 'create' | 'edit'
+    mode: 'create' | 'edit',
+    fromLeads: {
+        pagination: Pagination,
+        suggestions: SuggestedLeads,
+        selectedLead: SuggestedLeadsData | null
+        searchFilter: string | null
+    }
 }
 
 export const state = (): ProspectosFormState => ({
@@ -17,16 +23,21 @@ export const state = (): ProspectosFormState => ({
         segmentoId: null,
         tipoClienteId: null,
         vpo: 0,
-        territorioId: -1,
+        territorioId: null,
         observaciones: ''
     },
-    pagination: {
-        currentPage: 1,
-        totalRows: 0,
-        itemsPerPage: 10,
-        title: 'Prospectos',
-        showTitle: true,
-        arrayItemsPerPage: [4, 8, 120]
-    },
-    mode: 'create'
+    mode: 'create',
+    fromLeads: {
+        pagination: {
+            currentPage: 1,
+            totalRows: 0,
+            itemsPerPage: 10
+        },
+        suggestions: {
+            leads: [],
+            totalRows: 0
+        },
+        selectedLead: null,
+        searchFilter: null
+    }
 })

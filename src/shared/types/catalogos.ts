@@ -14,3 +14,4 @@ export type Aplicaciones = Catalogos & {
 
 export type TipoCliente = Catalogos
 export type Territorio = Catalogos
+export type Sucursales = Catalogos

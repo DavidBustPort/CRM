@@ -8,7 +8,6 @@ export const formatCurrency = (value: number, decimals: number = 2) => {
 }
 
 export const formatInputView = (val: string) => {
-    console.log(val)
     let cleanValue = val.replace(/[^0-9.]/g, '')
 
     const parts = cleanValue.split('.')

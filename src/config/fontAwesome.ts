@@ -35,8 +35,14 @@ import {
     faBuilding,
     faUser,
     faPlusCircle,
-    faEyeSlash,
-    faArrowLeft
+    faArrowLeft,
+    faLink,
+    faMagnifyingGlass,
+    faPlus,
+    faCircleCheck,
+    faCircleExclamation,
+    faMinus,
+    faTag
 }
 from  '@fortawesome/free-solid-svg-icons'
 
@@ -74,8 +80,14 @@ library.add(
     faBuilding,
     faUser,
     faPlusCircle,
-    faEyeSlash,
-    faArrowLeft
+    faArrowLeft,
+    faLink,
+    faMagnifyingGlass,
+    faPlus,
+    faCircleCheck,
+    faCircleExclamation,
+    faMinus,
+    faTag
 )
 
 export default FontAwesomeIcon

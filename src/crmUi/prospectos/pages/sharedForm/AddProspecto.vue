@@ -9,27 +9,43 @@
     </div>
     <div class="card mt-3">
         <div class="card-header text-end">
-            <a v-if="viewMode === 'mobile'"  href="">
-                
-            </a>
-            <a v-else href="" type="button" class="text-info fw-bold btn btn-link">
-                <FontAwesomeIcon icon="fa-eye-slash" />
-                Mostrar Leads
+            <a
+                href="#"
+                @click.prevent="openLeadsModel"
+                type="button"
+                class="text-info fw-bold btn btn-link"
+            >
+                <FontAwesomeIcon icon="fa-link" />
+                ¿Quieres importar desde un Lead?
             </a>
         </div>
         <div class="card-body">
             <ProspectosForm />
         </div>
     </div>
+    <Modal ref="modalRef">
+        <Leads />
+    </Modal>
 </template>
 
 <script lang="ts" setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ProspectosForm from './components/prospectosForm/ProspectosForm.vue'
+import Leads from './components/leads/Leads.vue'
 import BackToList from './components/BackToList.vue'
-import { computed } from 'vue'
-import { useResize } from '@/core/composables/useResize'
+import Modal from '@/shared/components/modal/Modal.vue'
+import { ref } from 'vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const { isMobile } = useResize()
-const viewMode = computed(() => isMobile.value ? 'mobile' : 'desktop')
+const modalRef = ref<InstanceType<typeof Modal>>()
+
+const openLeadsModel = (): void => {
+    modalRef.value?.open({
+        title: 'Leads',
+        size: 'lg',
+        animation: 'fade',
+        showCloseButtonInHeader: true,
+        showConfirmButton: false,
+        closeButtonText: 'Cerrar'
+    })
+}
 </script>

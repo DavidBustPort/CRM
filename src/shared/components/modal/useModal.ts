@@ -14,7 +14,8 @@ export function useModal(): Modal {
         showConfirmButton: true,
         showCloseButton: true,
         closeOnBackdropClick: true,
-        showCloseButtonInHeader: true
+        showCloseButtonInHeader: true,
+        animation: 'fade'
     })
 
     const open = (opts: ModalOptions) => {
