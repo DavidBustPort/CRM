@@ -4,6 +4,7 @@ interface Alert {
     loading(title?: string, text?: string): void
     close(): void
     success(title?: string, text?: string): Promise<SweetAlertResult>
+    toastSuccess(message: string): void
     error(message: string): void
 }
 
@@ -34,6 +35,29 @@ export function useAlert(): Alert {
         })
     }
 
+    const toastSuccess = (message: string): void => {
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            color: '#fff',
+            background: '#1e1e1e',
+            iconColor: '#a5dc86',
+            didOpen: (toast) => {
+                toast.style.borderLeft = '5px solid #a5dc86'
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        toast.fire({
+            icon: 'success',
+            title: message
+        })
+    }
+
     const error = (message: string): void => {
         const toast = Swal.mixin({
             toast: true,
@@ -61,6 +85,7 @@ export function useAlert(): Alert {
         loading,
         close,
         success,
+        toastSuccess,
         error
     }
 }

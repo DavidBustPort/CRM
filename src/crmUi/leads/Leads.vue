@@ -20,11 +20,21 @@ import Filter from './components/Filter.vue'
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLeadsStore } from './store/leadsStore'
+import { useAlert } from '@/core/composables/useAlert'
 
 const store = useLeadsStore()
 const route = useRoute()
+const { close } = useAlert()
 
 onMounted(async () => {
-    await store.getLeads()
+    try {
+        await Promise.all([
+            store.getLeads(),
+            store.getSucursales()
+        ])
+    }
+    finally {
+        close()
+    }
 })
 </script>

@@ -2,7 +2,7 @@ import { onMounted, ref, watch, type Ref } from 'vue'
 import type { Pagination } from './types'
 
 interface Pag {
-    setCurrentPage(page: number): void
+    setCurrentPage(page: number): boolean
     arrayItemsPerPage: number[]
     totalPages: Ref<number>
     pageList: Ref<number[]>
@@ -21,15 +21,19 @@ export function usePagination(config: Pagination): Pag {
     const setPagination = (currentPage: number) => {
         totalPages.value = Math.ceil(config.totalRows / config.itemsPerPage)
         let initialPage = 1
-        const lastPage = totalPages.value
+        let lastPage = totalPages.value
 
         if (totalPages.value > maxPages) {
             if (currentPage === totalPages.value) initialPage += currentPage - maxPages
             else {
                 initialPage += currentPage >= maxPages
-                ? ((maxPages + initialPage) - 1)
-                : maxPages
+                ? ((currentPage - maxPages) + 1)
+                : 0
             }
+
+            lastPage = currentPage >= maxPages
+            ? ((maxPages + initialPage) - 1)
+            : maxPages
         }
 
         let i = initialPage
@@ -38,11 +42,12 @@ export function usePagination(config: Pagination): Pag {
         .map(() => i++)
     }
 
-    const setCurrentPage = (page: number) => {
-        if (page === 0 && pageList.value[0] === 1) return
-        if (page > totalPages.value) return
+    const setCurrentPage = (page: number): boolean => {
+        if (page === 0 && pageList.value[0] === 1) return false
+        if (page > totalPages.value) return false
 
         setPagination(page)
+        return true
     }
 
     watch(

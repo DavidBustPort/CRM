@@ -68,5 +68,39 @@ export const LeadsService = {
         }
         catch { return defaultResponse }
         finally { abortController = null }
+    },
+
+    rejectLead: async (id: number, reason: number, motive: string): Promise<boolean> => {
+        try {
+            const res = await apiInstance.post<ApiWrapper<boolean>>('leads/rechazar', {
+                idLead: id,
+                tipoRechazo: reason,
+                motivoRechazo: motive
+            })
+
+            return res.data.succeeded
+        } catch { return false }
+    },
+
+    assingRik: async (idLead: number, idRik: number): Promise<boolean> => {
+        try {
+            const res = await apiInstance.post<ApiWrapper<boolean>>('leads/asignar-representante', {
+                idLead,
+                idRik
+            })
+
+            return res.data.succeeded
+        } catch { return false }
+    },
+
+    updateSucursal: async (idLead: number, idSucursal: number): Promise<boolean> => {
+        try {
+            const res = await apiInstance.put<ApiWrapper<boolean>>('leads/actualizar-sucursal', {
+                idLead,
+                IdCd: idSucursal
+            })
+
+            return res.data.succeeded
+        } catch { return false }
     }
 }

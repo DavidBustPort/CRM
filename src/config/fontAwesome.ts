@@ -42,7 +42,12 @@ import {
     faCircleCheck,
     faCircleExclamation,
     faMinus,
-    faTag
+    faTag,
+    faPhone,
+    faBan,
+    faPencilAlt,
+    faStore,
+    faEnvelope
 }
 from  '@fortawesome/free-solid-svg-icons'
 
@@ -87,7 +92,12 @@ library.add(
     faCircleCheck,
     faCircleExclamation,
     faMinus,
-    faTag
+    faTag,
+    faPhone,
+    faBan,
+    faPencilAlt,
+    faStore,
+    faEnvelope
 )
 
 export default FontAwesomeIcon

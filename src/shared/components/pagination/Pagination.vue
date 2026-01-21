@@ -60,7 +60,8 @@ const {
 } = usePagination(props.config)
 
 const setCurrentPageHandler = (page: number) => {
-    setCurrentPage(page)
-    emit('change:currentPage', page)
+    if (setCurrentPage(page)) {
+        emit('change:currentPage', page)
+    }
 }
 </script>

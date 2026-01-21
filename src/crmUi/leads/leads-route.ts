@@ -8,6 +8,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
             sidebarMenu: true,
             icon: 'fa-inbox',
+            requiresHeavyLoading: true
         }
     }
 ]

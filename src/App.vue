@@ -16,12 +16,18 @@ import { onMounted } from 'vue'
 import { useApp } from './useApp'
 import { useAppStore } from './core/store/appStore'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from './core/store/authStore'
 
 const { modalRef, verifySessionSianweb, verifyApiToken, authorized, authorizationError } = useApp()
 const appStore = useAppStore()
 const router = useRouter()
 
 onMounted(async () => {
+	if (import.meta.env.DEV) {
+		const authStore = useAuthStore()
+		authStore.logout()
+	}
+
 	const sesion = await verifySessionSianweb()
 	if (!sesion) {
 		appStore.setPageLoading(false)

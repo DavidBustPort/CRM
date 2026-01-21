@@ -82,6 +82,7 @@ const selectRik = (rik: customRiks) => {
 
 onMounted(async () => {
     const riksResponse = await CatalogoService.getRiks()
+    appStore.riks = riksResponse
     riks.value.push(...riksResponse)
     riks.value.unshift({
         id: null,
@@ -90,7 +91,3 @@ onMounted(async () => {
     selectedRik.value = riks.value[0]
 })
 </script>
-
-<style scoped lang="scss">
-
-</style>

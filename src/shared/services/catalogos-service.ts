@@ -43,5 +43,5 @@ export const CatalogoService = {
             const response = await apiInstance.get<ApiWrapper<Sucursales[]>>('/catalogos/sucursales')
             return response.data.succeeded ? response.data.data || [] : []
         } catch { return [] }
-    },
+    }
 }

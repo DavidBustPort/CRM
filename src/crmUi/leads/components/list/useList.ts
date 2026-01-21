@@ -4,6 +4,7 @@ interface List {
     isRowExpanded: (id: number) => boolean
     toggleRow: (id: number) => void
     statusClass: (statusId: number) => string
+    statusTitle: (statusId: number) => string
 }
 
 export function useList(): List {
@@ -26,9 +27,22 @@ export function useList(): List {
         }
     }
 
+    const statusTitle = (statusId: number): string => {
+        switch (statusId) {
+            case 1:
+            case 3:
+                return 'Asignado'
+            case 2: return 'Desarrollado'
+            case 4: return 'Cancelado por el gerente'
+            default: return 'Cancelado por RIK'
+        }
+    }
+
     return {
         isRowExpanded,
         toggleRow,
-        statusClass
+        statusClass,
+        statusTitle
+    
     }
 }
