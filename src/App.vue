@@ -23,8 +23,14 @@ const appStore = useAppStore()
 const router = useRouter()
 
 onMounted(async () => {
+	const authStore = useAuthStore()
+
+	if (authStore.isLoggedIn) {
+		appStore.setPageLoading(false)
+		return
+	}
+
 	if (import.meta.env.DEV) {
-		const authStore = useAuthStore()
 		authStore.logout()
 	}
 

@@ -1,7 +1,7 @@
 <template>
-    <tr>
-        <td :colspan="props.colspan" class="p-0 border-0">
-            <div class="p-4 border-start border-4 border-primary animate__animated animate__fadeIn">
+    <tr class="no-hover">
+        <td :colspan="props.colspan" class="p-0 border-0 detail-td-border">
+            <div class="p-4 animate__animated animate__fadeIn">
                 <div class="row">
                     <div :class="authSianwebStore.isGte ? 'col-md-8' : 'col-12'">
                         <div class="row g-3">
@@ -74,3 +74,10 @@ const props = defineProps<{
 
 const authSianwebStore = useAuthSianwebStore()
 </script>
+
+<style scoped>
+.detail-td-border {
+    border-left: 4px solid var(--bs-primary) !important;
+    transition: none; 
+}
+</style>

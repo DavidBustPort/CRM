@@ -8,7 +8,7 @@
                 type="text"
                 class="form-control p-2"
                 id="prospecto"
-                placeholder="..."
+                placeholder="Ej. Empresa S.A..."
                 :class="name ? 'select-highlighted' : 'select-default'"
                 v-model="name"
             />

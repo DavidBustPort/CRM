@@ -11,11 +11,11 @@ const routes: RouteRecordRaw[] = [
         },
         children: [
             {
-                path: '/gestion-proyectos',
+                path: 'gestion-proyectos',
                 name: 'Gestión de Proyectos',
                 component: () => import('./pages/gestionProyectos/GestionProyectos.vue'),
                 meta: {
-                    sidebarMenu: true,
+                    sidebarMenu: false,
                     icon: 'fas fa-file-excel'
                 }
             }

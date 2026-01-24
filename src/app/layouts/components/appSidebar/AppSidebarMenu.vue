@@ -50,7 +50,7 @@ const appStore = useAppStore()
 const routes = computed(() => 
     router
     .getRoutes()
-    .filter(route => route.meta?.sidebarMenu)
+    .filter(route => route.meta?.sidebarMenu && route.meta?.isSidebarMenuParent)
 )
 
 const currentRoute = computed(() => router.currentRoute)

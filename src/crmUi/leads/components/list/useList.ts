@@ -43,6 +43,5 @@ export function useList(): List {
         toggleRow,
         statusClass,
         statusTitle
-    
     }
 }

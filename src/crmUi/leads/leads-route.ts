@@ -7,6 +7,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./Leads.vue'),
         meta: {
             sidebarMenu: true,
+            isSidebarMenuParent: true,
             icon: 'fa-inbox',
             requiresHeavyLoading: true
         }

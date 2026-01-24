@@ -1,6 +1,6 @@
 <template>
     <div class="row mb-3">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-8">
             <div class="input-group shadow-sm border rounded">
                 <span class="input-group-text w-100 bg-white border-0 pe-1">
                     <FontAwesomeIcon icon="fa-magnifying-glass" class="text-muted" />

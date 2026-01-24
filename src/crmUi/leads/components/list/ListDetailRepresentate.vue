@@ -22,7 +22,11 @@
                     v-model="selectedRik"
                 >
                     <option :value="null" selected disabled>Seleccione un representante</option>
-                    <option v-for="rik in appStore.riks" :key="rik.id">
+                    <option
+                        :value="rik"
+                        v-for="rik in appStore.riks"
+                        :key="rik.id"
+                    >
                         {{ rik.id }} - {{ rik.nombre }}
                     </option>
                 </select>
@@ -64,6 +68,7 @@ const openModal = (): void => {
         confirmButtonText: 'Confirmar asignación',
         closeButtonText: 'Cancelar',
         onConfirm: async () => {
+            if (isSaving.value) return
             await save()
         },
         onClose: () => {

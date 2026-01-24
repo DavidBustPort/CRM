@@ -7,7 +7,9 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./Prospectos.vue'),
         meta: {
             sidebarMenu: true,
+            isSidebarMenuParent: true,
             icon: 'fa-person-walking-dashed-line-arrow-right',
+            canFilterRik: true
         },
         children: [
             {
@@ -15,7 +17,8 @@ const routes: RouteRecordRaw[] = [
                 name: 'Lista de Prospectos',
                 component: () => import('./pages/list/List.vue'),
                 meta: {
-                    canExtendContainer: true
+                    canExtendContainer: true,
+                    requiresHeavyLoading: true
                 }
             },
             {
@@ -25,6 +28,14 @@ const routes: RouteRecordRaw[] = [
                 meta: {
                     canExtendContainer: true,
                     mainContainerColumn: 'col-xxl-8 offset-xxl-2'
+                }
+            },
+            {
+                path: 'editar/:id',
+                name: 'Editar Prospecto',
+                component: () => import('./pages/sharedForm/EditProspecto.vue'),
+                meta: {
+
                 }
             }
         ]

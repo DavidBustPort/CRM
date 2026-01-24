@@ -1,11 +1,12 @@
 <template>
-    <thead class="table-light">
-        <tr>
-            <template v-for="(col, index) in columns" :key="index">
-                <th v-if="col.show" scope="col" :class="col.class">{{ col.name }}</th>
-            </template>
-        </tr>
-    </thead>
+    <template v-for="(col, index) in columns" :key="index">
+        <th
+            class="text-uppercase small fw-bold"
+            v-if="col.show"
+            scope="col"
+            :class="col.class"
+        >{{ col.name }}</th>
+    </template>
 </template>
 
 <script lang="ts" setup>
@@ -35,8 +36,8 @@ const columns = computed<DetailTableColumns[]>(() => [
     { name: 'N', show: store.prospectosFilters.showGteDetails, class: 'text-center etapa-N-bg text-white' },
     { name: 'C', show: store.prospectosFilters.showGteDetails, class: 'text-center etapa-C-bg text-white' },
     { name: 'Observaciones', show: true },
-    { name: 'Fecha registro', show: true },
-    { name: '', show: true },
+    //{ name: 'Fecha registro', show: true },
+    { name: '', show: true }
 ])
 
 watch(columns, (newColumns) => {

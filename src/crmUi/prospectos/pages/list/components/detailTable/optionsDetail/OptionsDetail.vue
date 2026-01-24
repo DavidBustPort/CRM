@@ -17,13 +17,13 @@
                 />
             </li>
             <li>
-                <RouterLink class="dropdown-item" :to="{ path: `/prospectos/edit/${props.prospectoId}` }">
+                <RouterLink class="dropdown-item" :to="{ path: `/prospectos/editar/${props.prospectoId}` }">
                     <FontAwesomeIcon icon="fa-edit" class="me-2 text-muted" />
                     Editar prospecto
                 </RouterLink>
             </li>
             <li>
-                <RouterLink class="dropdown-item" :to="{ path: `/prospectos/edit/${props.prospectoId}` }">
+                <RouterLink class="dropdown-item" :to="{ path: `/prospectos/editar/${props.prospectoId}` }">
                     <FontAwesomeIcon icon="fa-plus" class="me-2 text-muted" />
                     Agregar oportunidad
                 </RouterLink>

@@ -6,7 +6,12 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <div class="border rounded shadow mb-4 p-3">
+            <div class="border rounded shadow mb-4 p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <FontAwesomeIcon icon="fa-filter" class="me-2 text-primary" />
+                    <h5 class="mb-0 fw-bold text-dark">Filtros de búsqueda</h5>
+                </div>
+                <hr class="opacity-10 mb-3 mt-0">
                 <Filter />
             </div>
             <List />
@@ -21,6 +26,7 @@ import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLeadsStore } from './store/leadsStore'
 import { useAlert } from '@/core/composables/useAlert'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const store = useLeadsStore()
 const route = useRoute()

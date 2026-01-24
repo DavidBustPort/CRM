@@ -1,7 +1,26 @@
 <template>
-    <div class="border rounded shadow mb-4 p-3">
+    <div class="border rounded shadow mb-4 p-4">
+        <div class="d-flex justify-content-between mb-1 align-items-center">
+            <div class="d-flex align-items-center mb-3">
+                <FontAwesomeIcon icon="fa-filter" class="me-2 text-primary" />
+                <h5 class="mb-0 fw-bold text-dark">Filtros de búsqueda</h5>
+                <span v-if="activeFilters" class="badge rounded-pill bg-primary-subtle text-primary ms-2 small">
+                    Activos
+                </span>
+            </div>
+            <button
+                v-if="activeFilters"
+                title="Restablecer todos los filtros"
+                @click="store.clearFilters"
+                class="btn btn-link btn-sm text-danger text-decoration-none fw-bold"
+            >
+                <FontAwesomeIcon icon="fa-trash-can" class="me-1" />
+                Limpiar todo
+            </button>
+        </div>
+        <hr class="opacity-10 mb-3 mt-0">
         <DetailFilterEvolucionEtapas v-if="authSianwebStore.isGte" />
-        <div class="row align-items-end mt-3">
+        <div class="row align-items-end g-3 mt-1">
             <div class="col-12 col-md-3">
                 <FilterPeriodo
                     :format="'single'"
@@ -35,19 +54,6 @@
                     :label-italics="true" />
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col text-end">
-                <button
-                    title="Limpiar filtros"
-                    :disabled="!activeFilters"
-                    @click="store.clearFilters"
-                    class="btn btn-outline-danger btn-sm"
-                >
-                    <FontAwesomeIcon icon="fa-circle-xmark" class="me-1" />
-                    <span>Limpiar filtros</span>
-                </button>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -79,7 +85,7 @@ const activeFilters = computed(() => {
     )
 })
 
-watch(() => store.prospectosFilters, () => store.getProspectosList(), {
+watch(() => store.prospectosFilters, () => store.getProspectosListDebounce(false), {
     deep: true
 })
 </script>

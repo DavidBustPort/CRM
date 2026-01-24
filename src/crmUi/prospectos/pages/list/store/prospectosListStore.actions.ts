@@ -3,10 +3,9 @@ import { ProspectosListService } from '../services/prospectosList-service'
 import type { ProspectosListApiRequest } from '../types/prospectosListApiRequest'
 import { useProspectosListStore } from './prospectosListStore'
 import debounce from 'lodash/debounce'
-
 interface ProspectosListActions {
     getProspectosList(): Promise<void>
-    getProspectosListDebounce(): void
+    getProspectosListDebounce(immediate: boolean): Promise<void>
     buildProspectosListApiRequest(): ProspectosListApiRequest
     setItemsPerPage(itemsPerPage: number): void
     clearFilters(): void
@@ -29,8 +28,12 @@ export const actions: ProspectosListActions = {
         }
     },
 
-    getProspectosListDebounce() {
+    async getProspectosListDebounce(immediate: boolean = false): Promise<void> {
         const store = useProspectosListStore()
+        if (immediate) {
+            debouncedFetch.cancel()
+            return await store.getProspectosList()
+        }
         debouncedFetch(store)
     },
 

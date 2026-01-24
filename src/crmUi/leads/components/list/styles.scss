@@ -1,12 +1,18 @@
-.table {
-    border-collapse: separate;
-    border-spacing: 0.4px;
-}
-
 .custom-row {
     cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    td:first-child {
+        border-left: 4px solid transparent !important;
+        transition: border-left 0.2s ease-in-out, background-color 0.2s ease;
+    }
+
+    &:hover {
+        background-color: rgba(var(--bs-primary), 0.03);
+    }
+
     &.is-expanded {
-        background-color: #f8faff !important;
+        background-color: #f0f5ff !important;
 
         td:first-child {
             border-left: 4px solid var(--bs-primary) !important;
@@ -19,10 +25,16 @@
 }
 
 .btn-icon {
-    width: 28px;
-    height: 28px;
-    display: flex;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: var(--bs-primary);
+        color: white;
+        transform: scale(1.05);
+    }
 }

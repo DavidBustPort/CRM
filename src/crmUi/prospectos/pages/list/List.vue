@@ -24,7 +24,7 @@
         <div class="card-body">
             <DetailFilter />
             <hr class="my-4">
-            <DetailTable />
+            <DetailTable ref="detailTableRef" />
         </div>
     </div>
 </template>
@@ -39,11 +39,13 @@ import { useProspectosListStore } from './store/prospectosListStore'
 import { useAppStore } from '@/core/store/appStore'
 import { useAuthSianwebStore } from '@/core/store/authSianwebStore'
 import { ProspectosListService } from './services/prospectosList-service'
+import { useAlert } from '@/core/composables/useAlert'
 
 const route = useRoute()
 const store = useProspectosListStore()
 const appStore = useAppStore()
 const authSianwebStore = useAuthSianwebStore()
+const { close } = useAlert()
 
 const exportToExcel = async (): Promise<void> => {
     const req = store.buildProspectosListApiRequest()
@@ -54,7 +56,11 @@ watch(() => appStore.selectedRik, () => {
     store.prospectosFilters.rik = appStore.selectedRik
 })
 
-onMounted(() => store.getProspectosListDebounce())
+onMounted(async () => {
+    try {
+        await store.getProspectosListDebounce(true)
+    } finally { close() }
+})
 </script>
 
 <style scoped>

@@ -6,7 +6,7 @@
                 Volver a SIANWEB
             </a>
         </li>
-        <AppHeaderMenuFilterRik v-if="authSianwebStore.isGte" />
+        <AppHeaderMenuFilterRik v-if="authSianwebStore.isGte && route.meta.canFilterRik" />
         <li class="dropdown nav-item">
             <a href="" role="button" class="nav-link dropdown-toggle d-none d-sm-inline-block" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="text-dark">{{ authSianwebStore?.userName }}</span>
@@ -41,11 +41,12 @@ import { useAuthSianwebStore } from '@/core/store/authSianwebStore'
 import { useAuthStore } from '@/core/store/authStore'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const authSianwebStore = useAuthSianwebStore()
 const authStore = useAuthStore()
 const router = useRouter()
+const route = useRoute()
 const appStore = useAppStore()
 
 const currentRoute = computed(() => router.currentRoute.value)

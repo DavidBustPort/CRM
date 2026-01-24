@@ -7,9 +7,10 @@
         >{{ props.title ?? 'Periodo' }}</label>
         <VueDatePicker
             v-model="model"
-            :format="'LLL yyyy'"
+            :format="'MMM yyyy'"
             month-picker
             auto-apply
+            locale="es"
             :range="props.format === 'range'"
         />
     </div>

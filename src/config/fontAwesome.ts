@@ -47,7 +47,9 @@ import {
     faBan,
     faPencilAlt,
     faStore,
-    faEnvelope
+    faEnvelope,
+    faFilter,
+    faTrashCan
 }
 from  '@fortawesome/free-solid-svg-icons'
 
@@ -97,7 +99,9 @@ library.add(
     faBan,
     faPencilAlt,
     faStore,
-    faEnvelope
+    faEnvelope,
+    faFilter,
+    faTrashCan
 )
 
 export default FontAwesomeIcon

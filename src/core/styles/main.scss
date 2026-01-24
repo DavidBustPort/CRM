@@ -1,5 +1,7 @@
 @import './1-variables/app';
 
+@import 'bootstrap/scss/bootstrap';
+
 @import './2-mixins/buttons';
 
 @import './3-components/wrapper';
@@ -18,4 +20,3 @@
 @import './4-customs/dropdownRiksGerente';
 @import './4-customs/etapasProyectos';
 
-@import 'bootstrap/scss/bootstrap';

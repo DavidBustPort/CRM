@@ -73,6 +73,7 @@ const openModal = (): void => {
         confirmButtonText: 'Confirmar Rechazo',
         closeButtonText: 'Cancelar',
         onConfirm: async () => {
+            if (isSaving.value) return
             await save()
         },
         onClose: () => {

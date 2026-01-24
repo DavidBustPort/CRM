@@ -25,6 +25,7 @@
                     <option
                         v-for="s in store.sucursales ?? []"
                         :key="s.id"
+                        :value="s"
                         :disabled="s.id === props.currentSucursalId"
                     >
                         {{ s.id }} - {{ s.nombre }}
@@ -68,6 +69,7 @@ const openModal = (): void => {
         confirmButtonText: 'Confirmar Sucursal',
         closeButtonText: 'Cancelar',
         onConfirm: async () => {
+            if (isSaving.value) return
             await save()
         },
         onClose: () => {
