@@ -7,7 +7,9 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./Dashboard.vue'),
         meta: {
             sidebarMenu: true,
-            icon: 'fa-house'
+            isSidebarMenuParent: true,
+            icon: 'fa-house',
+            requiresHeavyLoading: true
         }
     }
 ]

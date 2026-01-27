@@ -24,10 +24,12 @@ import { CatalogoService } from '@/shared/services/catalogos-service'
 const props = withDefaults(defineProps<{
     idUen: number | null
     labelItalics?: boolean
-    title?: string
+    title?: string,
+    resetValue?: boolean
 }>(), {
     labelItalics: false,
-    title: 'Todos'
+    title: 'Todos',
+    resetValue: true
 })
 
 const segmentos = ref<Segmento[]>([])
@@ -35,8 +37,7 @@ const model = defineModel<number | null>()
 
 watch(() => props.idUen, async (newValue) => {
     segmentos.value = []
-    model.value = null
-
+    if (props.resetValue) model.value = null
     if (newValue && newValue !== -1) {
         segmentos.value = await CatalogoService.getSegmentos(newValue)
     }

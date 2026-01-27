@@ -35,7 +35,14 @@ const routes: RouteRecordRaw[] = [
                 name: 'Editar Prospecto',
                 component: () => import('./pages/sharedForm/EditProspecto.vue'),
                 meta: {
-
+                    mainContainerColumn: 'col-xxl-8 offset-xxl-2',
+                    requiresHeavyLoading: true
+                },
+                beforeEnter: (to, _, next) => {
+                    const id = to.params.id
+                    if (!id || isNaN(Number(id))) {
+                        next({ name: 'Lista de Prospectos' })
+                    } else next()
                 }
             }
         ]

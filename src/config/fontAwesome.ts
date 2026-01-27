@@ -49,7 +49,16 @@ import {
     faStore,
     faEnvelope,
     faFilter,
-    faTrashCan
+    faTrashCan,
+    faUserSlash,
+    faBullhorn,
+    faHandshake,
+    faTrophy,
+    faCheckDouble,
+    faSyncAlt,
+    faIdBadge,
+    faSpinner,
+    faStar
 }
 from  '@fortawesome/free-solid-svg-icons'
 
@@ -101,7 +110,16 @@ library.add(
     faStore,
     faEnvelope,
     faFilter,
-    faTrashCan
+    faTrashCan,
+    faUserSlash,
+    faBullhorn,
+    faHandshake,
+    faTrophy,
+    faCheckDouble,
+    faSyncAlt,
+    faIdBadge,
+    faSpinner,
+    faStar
 )
 
 export default FontAwesomeIcon

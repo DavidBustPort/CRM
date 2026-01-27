@@ -4,7 +4,8 @@ import type { SuggestedLeads, SuggestedLeadsData } from '@/crmUi/leads/types/sug
 
 export interface ProspectosFormState {
     formData: ProspectoForm
-    mode: 'create' | 'edit',
+    mode: 'create' | 'edit'
+    propspectoId?: number | null
     fromLeads: {
         pagination: Pagination,
         suggestions: SuggestedLeads,

@@ -7,16 +7,20 @@
         >{{ props.title ?? 'Periodo' }}</label>
         <VueDatePicker
             v-model="model"
-            :format="'MMM yyyy'"
+            :formats="{
+                input: 'MMMM yyyy',
+                preview: '---'
+            }"
             month-picker
             auto-apply
-            locale="es"
+            :locale="es"
             :range="props.format === 'range'"
         />
     </div>
 </template>
 
 <script lang="ts" setup>
+import { es } from 'date-fns/locale'
 
 interface Props {
     format: 'range' | 'single'
@@ -30,3 +34,15 @@ const props = withDefaults(defineProps<Props>(), {
 
 const model = defineModel()
 </script>
+
+<style scoped>
+:deep(.dp__input) {
+    text-transform: capitalize;
+}
+
+:deep(.dp__overlay_cell),
+:deep(.dp__overlay_cell_active),
+:deep(.dp__overlay_cell_pad) {
+    text-transform: capitalize !important;
+}
+</style>

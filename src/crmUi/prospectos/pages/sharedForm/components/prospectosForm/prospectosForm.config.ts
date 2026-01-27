@@ -72,7 +72,8 @@ const FORM_FIELDS: FormField[] = [
         props: () => ({
             title: '--Seleccione un Segmento--',
             labelItalics: true,
-            idUen: store.formData.uenId
+            idUen: store.formData.uenId,
+            resetValue: store.mode === 'create'
         })
     },
     {
